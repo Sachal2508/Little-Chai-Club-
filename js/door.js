@@ -92,7 +92,7 @@
       return 'M' + x0 + ' ' + b + 'V' + (t + .52 * W).toFixed(1) + 'C' + P(0, .335) + ' ' + P(.126, .2) + ' ' + P(.28, .2) + 'C' + P(.285, .145) + ' ' + P(.33, .09) + ' ' + P(.41, .07) + 'C' + P(.46, .055) + ' ' + P(.49, .03) + ' ' + P(.5, 0) + 'C' + P(.51, .03) + ' ' + P(.54, .055) + ' ' + P(.59, .07) + 'C' + P(.67, .09) + ' ' + P(.715, .145) + ' ' + P(.72, .2) + 'C' + P(.874, .2) + ' ' + P(1, .335) + ' ' + P(1, .52) + 'V' + b;
     }
     function half(w, h, f) {
-      var X = function (a) { return (f ? w - a * w : a * w).toFixed(1); }, Y = function (c) { return (c * w).toFixed(1); };
+      var X = function (a) { var x = f ? w - a * w : a * w; if (a === .5) x += f ? -1 : 1; return x.toFixed(1); }, Y = function (c) { return (c * w).toFixed(1); };
       return 'M' + X(0) + ' ' + h + 'V' + Y(.52) + 'C' + X(0) + ' ' + Y(.335) + ' ' + X(.126) + ' ' + Y(.2) + ' ' + X(.28) + ' ' + Y(.2) + 'C' + X(.285) + ' ' + Y(.145) + ' ' + X(.33) + ' ' + Y(.09) + ' ' + X(.41) + ' ' + Y(.07) + 'C' + X(.46) + ' ' + Y(.055) + ' ' + X(.49) + ' ' + Y(.03) + ' ' + X(.5) + ' 0V' + h + 'Z';
     }
     /* windows in the doors: Chai Cup on the left door, Jalebi on the right */
@@ -126,7 +126,7 @@
           '<path d="' + sh(4 * u, 96 * u, 5.2 * u, h + 30) + '" fill="none" stroke="#D9776B" stroke-width="' + (2.6 * u).toFixed(1) + '" stroke-linejoin="round"/>' +
           '<path d="' + sh(9.5 * u, 90.5 * u, 12 * u, h + 30) + '" fill="none" stroke="#F2A93B" stroke-width="' + (1.5 * u).toFixed(1) + '" stroke-dasharray="0 ' + (3.4 * u).toFixed(1) + '" stroke-linecap="round" stroke-linejoin="round"/>' +
           '<path d="' + sh(13 * u, 87 * u, 16 * u, h + 30) + '" fill="none" stroke="#F5B9A8" stroke-width="' + (.8 * u).toFixed(1) + '" stroke-linejoin="round"/>' +
-          '<path d="M' + m + ' 0V' + h + '" stroke="#C25A4E" stroke-width="' + (1.1 * u).toFixed(1) + '"/>' + fl +
+          fl +
           '<circle cx="' + 50 * u + '" cy="' + 22 * u + '" r="' + (1.6 * u).toFixed(1) + '" fill="#F2A93B"/>' +
           win +
           '<circle cx="' + 50 * u + '" cy="' + cy.toFixed(1) + '" r="' + (21 * u).toFixed(1) + '" fill="#D9776B"/><circle cx="' + 50 * u + '" cy="' + cy.toFixed(1) + '" r="' + (17.5 * u).toFixed(1) + '" fill="#FFF3EA"/><circle cx="' + 50 * u + '" cy="' + cy.toFixed(1) + '" r="' + (17.5 * u).toFixed(1) + '" fill="none" stroke="#F2A93B" stroke-width="' + (1.2 * u).toFixed(1) + '" stroke-dasharray="0 ' + (3 * u).toFixed(1) + '" stroke-linecap="round"/>' +
