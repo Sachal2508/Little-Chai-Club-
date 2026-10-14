@@ -68,17 +68,11 @@ a { color: inherit; }
 .dh-fit { --u: calc(min(680px, 100vw - 64px) / 100); padding-top: calc(var(--u) * 18 + 6px); transform-origin: 50% 0; transform: translateY(var(--fy, 0px)) scale(var(--fs, 1)); }
 .dh-scene { position: relative; width: min(680px, calc(100vw - 64px)); margin: 0 auto; }
 
-/* moving ring text around the arch */
-.dh-ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; opacity: 0; animation: dh-fi 1s .9s forwards; }
-.dh-ring text { font: 800 3.3px var(--font-body); fill: #E6C987; white-space: pre; }
-@keyframes dh-fi { to { opacity: 1; } }
-
 /* arch + the writing inside it */
-.dh-arch { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; padding: 25% 6% 36px; clip-path: inset(100% 0 0 0); animation: dh-open 1.3s .1s cubic-bezier(.7, 0, .2, 1) forwards; }
+.dh-arch { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; padding: 27% 11% 36px; clip-path: inset(100% 0 0 0); animation: dh-open 1.3s .1s cubic-bezier(.7, 0, .2, 1) forwards; }
 @keyframes dh-open { to { clip-path: inset(0); } }
 .dh-shape { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; overflow: visible; }
 .dh-shape .f { fill: var(--dh-cream); }
-.dh-shape .o, .dh-shape .i { fill: none; stroke: var(--dh-gold); stroke-linejoin: round; }
 .dh-eyebrow { display: block; margin-bottom: 12px; padding-left: .2em; font: 800 .74rem var(--font-body); letter-spacing: .2em; }
 .dh-tag { align-self: center; display: inline-block; padding: 6px 16px; border-radius: 99px; background: var(--dh-plum); color: var(--dh-cream); font: 800 .8rem var(--font-body); letter-spacing: .14em; text-transform: uppercase; }
 .dh-arch h1 { margin: 4px 0 10px; font: 400 clamp(1.55rem, 6.6vw, 2.4rem) / 1.15 var(--dh-serif); letter-spacing: 0; color: var(--dh-plum); }
@@ -96,9 +90,20 @@ a { color: inherit; }
 .dh-room .dh-roti { height: calc(var(--u) * 21); }
 .dh-room .dh-rusk { height: calc(var(--u) * 30); }
 .dh-room .dh-mithai { height: calc(var(--u) * 19); }
+.dh-room .dh-samosa { height: calc(var(--u) * 17); }
 .dh-room.in img { opacity: 1; transform: none; }
 .dh-room.in .dh-rusk { transition-delay: .18s; }
 .dh-room.in .dh-mithai { transition-delay: .36s; }
+.dh-room.in .dh-samosa { transition-delay: .54s; }
+/* the three plushies inside the door never sit still: a small, constant, out-of-step wobble.
+   Uses the separate translate/rotate/scale properties so it never fights the pop-in transition above. */
+.dh-room.in .dh-roti { animation: dh-idle-a 3.6s ease-in-out 1s infinite; }
+.dh-room.in .dh-rusk { animation: dh-idle-b 4.2s ease-in-out 1.3s infinite; }
+.dh-room.in .dh-mithai { animation: dh-idle-c 3.2s ease-in-out .8s infinite; }
+.dh-room.in .dh-samosa { animation: dh-idle-a 3.9s ease-in-out 1.6s infinite; }
+@keyframes dh-idle-a { 0%, 100% { translate: 0 0; rotate: 0deg; } 50% { translate: 0 -4%; rotate: 2deg; } }
+@keyframes dh-idle-b { 0%, 100% { rotate: -1.8deg; translate: 0 0; } 50% { rotate: 1.8deg; translate: 0 -2%; } }
+@keyframes dh-idle-c { 0%, 100% { scale: 1 1; translate: 0 0; } 50% { scale: 1.03 .97; translate: 0 -3%; } }
 .dh-rv { opacity: 0; transform: translateY(40px); transition: opacity .8s cubic-bezier(.2, .9, .25, 1.1), transform .8s cubic-bezier(.2, .9, .25, 1.1); transition-delay: calc(var(--i, 0) * .08s); }
 .dh-rv.in { opacity: 1; transform: none; }
 
@@ -118,20 +123,18 @@ a { color: inherit; }
 /* the doors */
 .dh-door { position: absolute; inset: 0; z-index: 5; visibility: hidden; pointer-events: none; perspective: 1400px; perspective-origin: 50% 28%; }
 .dh-door.ready { visibility: visible; }
-.dh-lf, .dh-rf { position: absolute; inset: 0; background: #FFF3EA; pointer-events: auto; cursor: pointer; will-change: transform; backface-visibility: hidden; -webkit-tap-highlight-color: transparent; }
+.dh-lf, .dh-rf { position: absolute; inset: 0; background: #2A1A0E; pointer-events: auto; cursor: pointer; will-change: transform; backface-visibility: hidden; -webkit-tap-highlight-color: transparent; }
 .dh-lf { transform-origin: 0 50%; }
 .dh-rf { transform-origin: 100% 50%; }
 .dh-lf svg, .dh-rf svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.dh-sh { position: absolute; inset: 0; background: #7A3B33; opacity: 0; pointer-events: none; will-change: opacity; }
+.dh-sh { position: absolute; inset: 0; background: #120A04; opacity: 0; pointer-events: none; will-change: opacity; }
 .dh-dtx { position: absolute; left: 0; right: 0; top: calc(var(--u) * 38); text-align: center; pointer-events: none; will-change: opacity; }
-.dh-dtx b { display: block; font: 400 clamp(1.7rem, 7.2vw, 2.6rem) / 1.15 var(--dh-serif); color: var(--dh-plum); }
-.dh-dtx em { font-style: normal; color: #A8402F; }
-.dh-dtx small { display: block; margin-top: 16px; font: 800 .78rem var(--font-body); letter-spacing: .16em; text-transform: uppercase; color: var(--dh-plum); animation: dh-nudge 1.6s ease-in-out infinite; }
+.dh-dtx b { display: block; font: 400 clamp(1.7rem, 7.2vw, 2.6rem) / 1.15 var(--dh-serif); color: #FFF3EA; }
+.dh-dtx em { font-style: normal; color: #F2C766; }
+.dh-dtx small { display: block; margin-top: 16px; font: 800 .78rem var(--font-body); letter-spacing: .16em; text-transform: uppercase; color: #E2B658; animation: dh-nudge 1.6s ease-in-out infinite; }
 @keyframes dh-nudge { 50% { transform: translateY(4px); } }
 .dh-door.opened .dh-lf, .dh-door.opened .dh-rf { pointer-events: none; }
 .dh-fr { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 6; pointer-events: none; overflow: visible; }
-.dh-fr .f { display: none; }
-.dh-fr .o, .dh-fr .i { fill: none; stroke: var(--dh-gold); stroke-linejoin: round; }
 
 /* side ropes with hanging plushies (door.js sets --side and adds .dh-ropes when there is room) */
 .dh-rope { position: absolute; top: calc(var(--dh-hh) - 2px); z-index: 3; display: none; width: calc(var(--side, 0px) - 14px); height: min(54vh, 440px); height: min(54svh, 440px); pointer-events: none; }
@@ -167,7 +170,6 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   .dh-door { display: none; }
   .dh-arch { clip-path: none; animation: none; }
-  .dh-ring { opacity: 1; animation: none; }
   .dh-pw, .dh-room img { opacity: 1 !important; transition: none; }
   .dh-room img { transform: none; }
   .dh-rv { opacity: 1; transform: none; transition: none; }
@@ -184,7 +186,16 @@ a { color: inherit; }
 .friend:nth-child(odd) .tile { transform: rotate(-2.5deg); }
 .friend:nth-child(even) .tile { transform: rotate(2.5deg); }
 .friend:hover .tile { transform: rotate(0) translateY(-5px); }
-.tile img { position: absolute; bottom: 6%; left: 50%; width: auto; height: var(--h); max-width: 86%; transform: translateX(-50%); }
+.tile img { position: absolute; bottom: 6%; left: 50%; width: auto; height: var(--h); max-width: 86%; transform: translateX(-50%); transition: opacity .45s ease, scale .5s cubic-bezier(.2, .9, .25, 1.1); }
+/* second pose (the plushie turns to show its other side) */
+.tile .b { height: var(--h2, var(--h)); opacity: 0; scale: .94; }
+.tile:focus-visible { outline: 3px solid var(--butter); outline-offset: 4px; }
+.friend.alt .a, .friend:focus-within .tile:focus-visible .a { opacity: 0; }
+.friend.alt .b, .friend:focus-within .tile:focus-visible .b { opacity: 1; scale: 1; }
+@media (hover: hover) {
+  .friend:hover .a { opacity: 0; }
+  .friend:hover .b { opacity: 1; scale: 1; }
+}
 .friend h3 { margin-top: 16px; font-size: 1.5rem; letter-spacing: -0.02em; }
 
 /* ---- Join ---- */

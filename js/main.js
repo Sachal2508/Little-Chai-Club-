@@ -1,5 +1,5 @@
 /* Little Chai Club — UI preview interactions only.
- * The character picker is functional. Signup forms are visual placeholders;
+ * The character picker is functional. The friends grid flips to a second pose on hover/tap. Signup forms are visual placeholders;
  * no email is collected or sent by this package.
  */
 (() => {
@@ -47,6 +47,16 @@
     document.addEventListener('visibilitychange', () => (document.hidden ? stop() : play()));
     show(0); play();
   }
+  /* Friends grid: the second pose shows on hover (CSS). Touch screens and keyboards toggle it instead. */
+  const canHover = window.matchMedia('(hover: hover)').matches;
+  document.querySelectorAll('.friend .tile').forEach((tile) => {
+    const friend = tile.closest('.friend');
+    const flip = () => { const on = friend.classList.toggle('alt'); tile.setAttribute('aria-pressed', String(on)); };
+    if (!canHover) tile.addEventListener('click', flip);
+    tile.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); flip(); }
+    });
+  });
   document.querySelectorAll('.wl').forEach((form) => {
     form.addEventListener('submit', (event) => {
       event.preventDefault();
