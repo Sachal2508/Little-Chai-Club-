@@ -47,16 +47,59 @@
     document.addEventListener('visibilitychange', () => (document.hidden ? stop() : play()));
     show(0); play();
   }
-  /* Friends grid: the second pose shows on hover (CSS). Touch screens and keyboards toggle it instead. */
+  /* Friends grid. Two-pose friends flip to their other side on hover (CSS). The 360 friends
+     (front / side / back) turn around by themselves while you hover, one view per second, fading in between.
+     Touch screens and keyboards use tap / Enter / Space to start and stop. */
   const canHover = window.matchMedia('(hover: hover)').matches;
+  const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.friend .tile').forEach((tile) => {
     const friend = tile.closest('.friend');
+    const views = [...tile.querySelectorAll('.v')];
+    if (views.length) {
+      let at = 0;
+      let timer = 0;
+      const show = (i) => { at = i; views.forEach((v, k) => v.classList.toggle('on', k === i)); };
+      const stop = () => { clearInterval(timer); timer = 0; show(0); friend.classList.remove('alt'); tile.setAttribute('aria-pressed', 'false'); };
+      const start = () => {
+        if (timer) return;
+        friend.classList.add('alt'); tile.setAttribute('aria-pressed', 'true');
+        if (calm) { show(1); return; }
+        timer = setInterval(() => show((at + 1) % views.length), 1000);
+        if (!timer) show(1);
+      };
+      const toggle = () => (friend.classList.contains('alt') ? stop() : start());
+      if (canHover) {
+        tile.addEventListener('mouseenter', start);
+        tile.addEventListener('mouseleave', stop);
+      } else {
+        tile.addEventListener('click', toggle);
+      }
+      tile.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggle(); }
+      });
+      tile.addEventListener('blur', stop);
+      return;
+    }
     const flip = () => { const on = friend.classList.toggle('alt'); tile.setAttribute('aria-pressed', String(on)); };
     if (!canHover) tile.addEventListener('click', flip);
     tile.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); flip(); }
     });
   });
+
+  /* Back-to-top button: appears after the first screen, hops, then glides up. */
+  const btt = document.getElementById('btt');
+  if (btt) {
+    let queued = false;
+    const place = () => { queued = false; btt.classList.toggle('show', window.scrollY > window.innerHeight * 0.7); };
+    window.addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(place); } }, { passive: true });
+    place();
+    btt.addEventListener('click', () => {
+      btt.classList.remove('hop'); void btt.offsetWidth; btt.classList.add('hop');
+      window.scrollTo({ top: 0, behavior: calm ? 'auto' : 'smooth' });
+    });
+  }
+
   document.querySelectorAll('.wl').forEach((form) => {
     form.addEventListener('submit', (event) => {
       event.preventDefault();
