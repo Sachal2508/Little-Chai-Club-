@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About Us & Founder Story — Little Chai Club</title>
+<meta name="description" content="Discover the story and meet the founder of Little Chai Club. Handcrafted plush toys inspired by South Asian teatime traditions, cozy snacks, and warm memories.">
+<meta name="theme-color" content="#FFF1D6">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Caveat:wght@600&family=Manrope:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.about-hero {
+  padding: 130px var(--gutter) 50px;
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.about-hero .kicker {
+  color: var(--terracotta);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+.about-hero h1 {
+  font-size: clamp(2.6rem, 6.5vw, 4.4rem);
+  color: var(--green);
+  margin-bottom: 18px;
+}
+.about-hero .lead {
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  line-height: 1.6;
+  color: var(--ink);
+  opacity: 0.9;
+  margin: 0 auto;
+}
+
+/* Founder Feature Section */
+.founder-section {
+  max-width: 960px;
+  margin: 20px auto 70px;
+  padding: 0 var(--gutter);
+}
+.founder-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 36px;
+  align-items: center;
+  background: #FFFDF9;
+  border: 3.5px solid var(--plum);
+  border-radius: 32px;
+  padding: 40px;
+  box-shadow: 7px 8px 0 var(--plum);
+}
+.founder-avatar {
+  text-align: center;
+}
+.founder-avatar-frame {
+  width: 220px;
+  aspect-ratio: 3/4;
+  margin: 0 auto;
+  border-radius: 999px 999px 20px 20px;
+  border: 3px solid var(--plum);
+  background: var(--sun);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 4px 5px 0 var(--plum);
+}
+.founder-avatar-frame img {
+  width: 85%;
+  height: auto;
+  margin-bottom: 6px;
+  mix-blend-mode: multiply;
+}
+.founder-name {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--green);
+}
+.founder-title {
+  font-size: 0.9rem;
+  color: var(--terracotta);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.founder-content .hand {
+  font-size: 1.8rem;
+  color: var(--terracotta);
+  margin-bottom: 8px;
+}
+.founder-content h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--green);
+  margin-bottom: 16px;
+}
+.founder-content p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.founder-quote {
+  font-style: italic;
+  padding-left: 18px;
+  border-left: 4px solid var(--butter);
+  margin: 20px 0;
+  font-size: 1.1rem;
+  color: var(--plum);
+  font-weight: 600;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 20px auto 80px;
+  padding: 0 var(--gutter);
+}
+.about-card {
+  background: #FFFDF9;
+  border: 3.5px solid var(--plum);
+  border-radius: 24px;
+  padding: 32px 28px;
+  box-shadow: 6px 6px 0 var(--plum);
+  transition: transform .35s ease;
+}
+.about-card:hover {
+  transform: translateY(-4px);
+}
+.about-card h3 {
+  font-size: 1.5rem;
+  color: var(--green);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.about-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+  opacity: 0.9;
+  margin: 0;
+}
+.about-story {
+  background: var(--blush);
+  border-top: 3.5px solid var(--plum);
+  border-bottom: 3.5px solid var(--plum);
+  padding: 70px var(--gutter);
+  text-align: center;
+}
+.about-story-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.about-story h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--green);
+  margin-bottom: 18px;
+}
+.about-story p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .founder-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 30px 20px;
+  }
+  .founder-quote {
+    text-align: left;
+  }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="logo" href="index.html#top" aria-label="Little Chai Club — home">
+    <img src="assets/images/logo.webp" width="420" height="425" alt="Little Chai Club">
+  </a>
+  <div class="site-header__actions">
+    <a class="btn" href="index.html#join">Get early access</a>
+    <button class="menu" id="mb" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nv">
+      <i></i><i></i><i></i>
+    </button>
+  </div>
+</header>
+
+<nav class="nav" id="nv" aria-label="Main menu" inert>
+  <div class="nv-in">
+    <ul>
+      <li style="--bg:#FFF1D6;--fg:#2D4630;--ac:#D9694F;--i:0"><a href="index.html#top"><em>🧸</em>Home</a></li>
+      <li style="--bg:#5E7A45;--fg:#FFF1D6;--ac:#FFD36B;--i:1"><a href="index.html#plushies"><em>☕</em>Our plushies</a></li>
+      <li style="--bg:#F2A93B;--fg:#2D4630;--ac:#FFF1D6;--i:2"><a href="about.html"><em>✨</em>About us</a></li>
+      <li style="--bg:#D9694F;--fg:#FFF1D6;--ac:#FFD36B;--i:3"><a href="index.html#join"><em>💌</em>Join the list</a></li>
+      <li style="--bg:#1F3123;--fg:#FFF1D6;--ac:#D9694F;--i:4"><a href="#contact"><em>📮</em>Contact</a></li>
+    </ul>
+    <p class="nv-note">soft toys · small batch · hugs included</p>
+  </div>
+</nav>
+
+<main id="main">
+  <section class="about-hero">
+    <p class="kicker">Our Story & Heritage</p>
+    <h1>Tiny friends, big hearts.</h1>
+    <p class="lead">Little Chai Club was born from fond memories of afternoon teatime in South Asia — the clinking of steel spoons, fragrant cardamom floating on golden chai, and warm bakery snacks passed around the table with stories and laughter.</p>
+  </section>
+
+  <!-- Founder Info Section -->
+  <section class="founder-section">
+    <div class="founder-card">
+      <div class="founder-avatar">
+        <div class="founder-avatar-frame">
+          <img src="assets/images/chai-cup.webp" alt="Little Chai Club Founder Mascot">
+        </div>
+        <div class="founder-name">Zainab & The Chai Team</div>
+        <div class="founder-title">Founder & Creative Director</div>
+      </div>
+      <div class="founder-content">
+        <p class="hand">a note from our founder</p>
+        <h2>Why I started Little Chai Club</h2>
+        <p>Growing up, 4:00 PM teatime was never just about having a warm drink. It was the daily ritual that stopped the clock. It meant family gathered around the kitchen table, dipping crispy rusks into sweetened chai, snacking on crumbly nan khatai, and laughing over the smallest stories.</p>
+        <div class="founder-quote">
+          "We wanted to turn that feeling of warmth, comfort, and nostalgic cultural pride into something tangible — something you can hold, squeeze, and cherish every single day."
+        </div>
+        <p>Every plushie is designed with deep care for authentic textures, custom velboa fabrics, child-safe embroidered faces, and joyful storytelling. Thank you for welcoming our tiny friends into your homes.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="about-grid">
+    <div class="about-card">
+      <h3><span>☕</span> Inspired by Tradition</h3>
+      <p>Every character in our club takes inspiration from beloved South Asian teatime staples. From crunchy rusks ready for dunking to delicate nan khatai cookies, sweet swirl buns, and fiery hari mirch with a gentle heart.</p>
+    </div>
+    <div class="about-card">
+      <h3><span>🪡</span> Handcrafted with Care</h3>
+      <p>Our plushies are created in thoughtful small batches. Each piece features custom ultra-soft velboa, child-safe embroidered expressions, and reinforced seams made to withstand years of hugs and imaginative play.</p>
+    </div>
+    <div class="about-card">
+      <h3><span>💛</span> Collectible & Gifting</h3>
+      <p>Whether you are introducing young ones to cultural heritage or looking for a comforting desk buddy that sparks joy, Little Chai Club friends bring warmth, humor, and connection to every corner of your home.</p>
+    </div>
+  </div>
+
+  <section class="about-story">
+    <div class="about-story-inner">
+      <h2>Made for comfort, cuddles, and community.</h2>
+      <p>We believe that toys should carry soul, story, and warmth. In a busy world, teatime represents a moment to pause, savor, and share. Our soft toys are a huggable reminder that comfort is always nearby.</p>
+      <div style="margin-top: 28px;">
+        <a class="btn" href="index.html#plushies">Meet all 6 plushies</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="join" id="join">
+    <p class="hand">stay in touch</p>
+    <h2>Be part of<br>our first drop.</h2>
+    <form class="wl" novalidate>
+      <input type="email" name="email" required autocomplete="email" placeholder="Your email address" aria-label="Email address">
+      <input class="wl__hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn" data-tone="butter">Get early access</button>
+    </form>
+    <p class="wl__msg" role="status" aria-live="polite"></p>
+    <p class="consent">By signing up you agree to receive launch updates from Little Chai Club. <a href="privacy.html">Privacy Notice</a></p>
+    <p class="join__note">Leave your email and we'll let you know when the first collection arrives.</p>
+  </section>
+</main>
+
+<footer class="site-footer" id="contact">
+  <img src="assets/images/logo.webp" width="420" height="425" alt="Little Chai Club" loading="lazy">
+  <p>© 2026 Little Chai Club · Plush toys inspired by South Asia</p>
+  <p><a href="about.html">About Us</a> · <a href="privacy.html">Privacy Notice</a></p>
+</footer>
+
+<button class="btt" id="btt" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 60 72" aria-hidden="true">
+    <path class="bd" d="M4 64V30A26 26 0 0 1 56 30V64a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4Z"/>
+    <path class="ar" d="M21 28l9-9 9 9M30 20v13"/>
+    <circle class="fc" cx="22" cy="48" r="2.7"/>
+    <circle class="fc" cx="38" cy="48" r="2.7"/>
+    <path class="sm" d="M26.5 53q3.5 3.6 7 0"/>
+    <circle class="ck" cx="15" cy="53" r="4" opacity=".85"/>
+    <circle class="ck" cx="45" cy="53" r="4" opacity=".85"/>
+  </svg>
+</button>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

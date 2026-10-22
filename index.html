@@ -1,11 +1,11 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Little Chai Club — Plush toys inspired by South Asia</title>
+<title>Little Chai Club — Chai-time plushies, tiny friends, big hearts</title>
 <meta name="description" content="Soft, hand-stitched plush toys inspired by the flavours of South Asia. Our first collection is coming soon — be the first to meet them.">
-<meta name="theme-color" content="#2D4630">
+<meta name="theme-color" content="#FFF1D6">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Little Chai Club — Plush toys you can hold">
 <meta property="og:description" content="Soft, hand-stitched, collectible plush toys inspired by South Asia. First collection coming soon.">
@@ -15,85 +15,166 @@
 <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Caveat:wght@600&family=Manrope:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header"><a class="logo" href="#top" aria-label="Little Chai Club — home"><img src="assets/images/logo.webp" width="420" height="425" alt="Little Chai Club"></a><a class="btn" href="#join">Get early access</a></header>
+
+<header class="site-header">
+  <a class="logo" href="#top" aria-label="Little Chai Club — home">
+    <img src="assets/images/logo.webp" width="420" height="425" alt="Little Chai Club">
+  </a>
+  <div class="site-header__actions">
+    <a class="btn" href="#join">Get early access</a>
+    <button class="menu" id="mb" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nv">
+      <i></i><i></i><i></i>
+    </button>
+  </div>
+</header>
+
+<nav class="nav" id="nv" aria-label="Main menu" inert>
+  <div class="nv-in">
+    <ul>
+      <li style="--bg:#FFF1D6;--fg:#2D4630;--ac:#D9694F;--i:0"><a href="#top"><em>🧸</em>Home</a></li>
+      <li style="--bg:#5E7A45;--fg:#FFF1D6;--ac:#FFD36B;--i:1"><a href="#plushies"><em>☕</em>Our plushies</a></li>
+      <li style="--bg:#F2A93B;--fg:#2D4630;--ac:#FFF1D6;--i:2"><a href="about.html"><em>✨</em>About us</a></li>
+      <li style="--bg:#D9694F;--fg:#FFF1D6;--ac:#FFD36B;--i:3"><a href="#join"><em>💌</em>Join the list</a></li>
+      <li style="--bg:#1F3123;--fg:#FFF1D6;--ac:#D9694F;--i:4"><a href="#contact"><em>📮</em>Contact</a></li>
+    </ul>
+    <p class="nv-note">soft toys · small batch · hugs included</p>
+  </div>
+</nav>
+
 <main id="main">
-<section class="dh" id="top" aria-label="Little Chai Club: our doors are always open">
-  <div class="dh-stage">
-
-    <!-- Hanging ropes (side space). Shown by door.js only when there is room on both sides. -->
-    <div class="dh-rope dh-rope--l" aria-hidden="true">
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none"><path class="dh-rope__line" d="M4 4Q50 56 96 4"/><path class="dh-rope__twine" d="M4 4Q50 56 96 4"/></svg>
-      <i class="dh-nail" style="left:4%;top:4%"></i><i class="dh-nail" style="left:96%;top:4%"></i>
-      <div class="dh-hang" style="--x:31.6%;--y:25.8%;--d:-1.2s;--k:1"><i class="dh-peg"></i><img data-pal="Roti" src="assets/images/roti-upright.webp" width="669" height="772" alt=""></div>
-      <div class="dh-hang" style="--x:68.4%;--y:25.8%;--d:-3s;--k:1.25"><i class="dh-peg"></i><img data-pal="Rusk" src="assets/images/rusk-upright.webp" width="399" height="990" alt=""></div>
+<section class="hero" id="top">
+  <div class="hero__text">
+    <p class="kicker fade" style="--i:0">Plush toys · Hand-stitched · Collectible</p>
+    <h1 class="fade" style="--i:1">Warmth you can hold.</h1>
+    <p class="lead fade" style="--i:2">Soft, hand-stitched plush friends inspired by the flavours of South Asia. Our first collection is coming soon.</p>
+    <div class="fade" style="--i:3">
+      <form class="wl" novalidate>
+        <input type="email" name="email" required autocomplete="email" placeholder="Your email address" aria-label="Email address">
+        <input class="wl__hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn">Notify me</button>
+      </form>
+      <p class="wl__msg" role="status" aria-live="polite"></p>
+      <p class="consent">By signing up you agree to receive launch updates from Little Chai Club. <a href="privacy.html">Privacy Notice</a></p>
     </div>
-    <div class="dh-rope dh-rope--r" aria-hidden="true">
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none"><path class="dh-rope__line" d="M4 4Q50 56 96 4"/><path class="dh-rope__twine" d="M4 4Q50 56 96 4"/></svg>
-      <i class="dh-nail" style="left:4%;top:4%"></i><i class="dh-nail" style="left:96%;top:4%"></i>
-      <div class="dh-hang" style="--x:31.6%;--y:25.8%;--d:-2.2s;--k:1"><i class="dh-peg"></i><img data-pal="Chai Cup" src="assets/images/chai-cup.webp" width="672" height="765" alt=""></div>
-      <div class="dh-hang" style="--x:68.4%;--y:25.8%;--d:-.4s;--k:.95"><i class="dh-peg"></i><img data-pal="Mithai Cube" src="assets/images/mithai-cube.webp" width="588" height="639" alt=""></div>
-    </div>
-
-    <div class="dh-fit">
-      <div class="dh-scene">
-        <svg class="dh-ring" viewBox="0 0 100 135" aria-hidden="true"><defs><path id="dh-c" d="M-5.5 135V50A55.5 55.5 0 0 1 105.5 50V135"/></defs></svg>
-
-        <div class="dh-pals" aria-hidden="true">
-          <div class="dh-pw dh-p1"><img class="dh-pal" data-pal="Jalebi" src="assets/images/jalebi.webp" width="673" height="704" alt=""></div>
-          <div class="dh-pw dh-p2"><img class="dh-pal" data-pal="Chai Cup" src="assets/images/chai-cup.webp" width="672" height="765" alt=""></div>
-          <div class="dh-pw dh-p3"><img class="dh-pal" data-pal="Mirchi" src="assets/images/mirchi-upright.webp" width="374" height="997" alt=""></div>
-        </div>
-
-        <div class="dh-arch">
-          <svg class="dh-shape" aria-hidden="true"><path class="f"/><path class="i"/><path class="o"/></svg>
-          <p class="dh-eyebrow dh-rv">LITTLE CHAI CLUB</p>
-          <p class="dh-tag dh-rv" style="--i:1">A plushie brand</p>
-          <h1 class="dh-rv" style="--i:1">Chai-time treats,<br><em>made into plushies</em></h1>
-          <p class="dh-slogan dh-rv" style="--i:2">Plush friends, inspired by chai.</p>
-          <p class="dh-blurb dh-rv" style="--i:3">Small-batch and stitched with a smile, our soft toys are shaped like the treats that go with chai, from rusks and jalebi to a cosy cup of kadak chai. Made to be cuddled, gifted and loved.</p>
-          <div class="dh-rv" style="--i:4"><form class="wl" novalidate><input type="email" name="email" required autocomplete="email" placeholder="Your email" aria-label="Email address"><input class="wl__hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="btn">Notify me</button></form><p class="wl__msg" role="status" aria-live="polite"></p><p class="consent">By signing up you agree to receive launch updates from Little Chai Club. <a href="privacy.html">Privacy Notice</a></p></div>
-          <p class="dh-motto dh-rv">Tiny friends &#9829; Big hearts</p>
-          <div class="dh-room" aria-hidden="true">
-            <img class="dh-roti" data-pal="Roti" src="assets/images/roti-upright.webp" width="669" height="772" alt="">
-            <img class="dh-rusk" data-pal="Rusk" src="assets/images/rusk-upright.webp" width="399" height="990" alt="">
-            <img class="dh-mithai" data-pal="Mithai Cube" src="assets/images/mithai-cube.webp" width="588" height="639" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Greeting cloud shown when a plushie is hovered / tapped -->
-    <div class="dh-bub" aria-hidden="true"><span>Hi, my name is</span><b>Jalebi!</b></div>
+  </div>
+  <div class="stage fade" style="--i:2;--c:#C8664F" data-friends='[{"n": "Chai Cup", "c": "#C8664F", "d": "Spiced, sweet and always up for a hug."}, {"n": "Rusk", "c": "#E9B949", "d": "Tall, toasty and made for dunking."}, {"n": "Mithai Cube", "c": "#9FB399", "d": "Pistachios on top, sweetness all through."}, {"n": "Mirchi", "c": "#F2B8A8", "d": "Small, green and full of attitude."}, {"n": "Jalebi", "c": "#2F7F86", "d": "All curls and golden cheer."}, {"n": "Roti", "c": "#C3B1E1", "d": "Warm, toasty and endlessly comforting."}]'>
+    <div class="blob"></div>
+    <i class="sp" style="top:6%;left:4%;--s:30px;--c:#FFD36B;--tw:0s"></i>
+    <i class="sp" style="top:12%;right:3%;--s:22px;--c:#D9694F;--tw:.9s"></i>
+    <i class="dt" style="top:40%;right:-1%;--s:12px;--c:#3E8E95"></i>
+    <img class="actor on" src="assets/images/chai-cup.webp" width="672" height="765" alt="Chai Cup plush toy" style="--h:48%">
+    <img class="actor" src="assets/images/rusk-upright.webp" width="399" height="990" alt="Rusk plush toy" style="--h:62%" aria-hidden="true">
+    <img class="actor" src="assets/images/mithai-cube.webp" width="588" height="639" alt="Mithai Cube plush toy" style="--h:44%" aria-hidden="true">
+    <img class="actor" src="assets/images/mirchi-upright.webp" width="374" height="997" alt="Mirchi plush toy" style="--h:64%" aria-hidden="true">
+    <img class="actor" src="assets/images/jalebi.webp" width="673" height="704" alt="Jalebi plush toy" style="--h:46%" aria-hidden="true">
+    <img class="actor" src="assets/images/roti-upright.webp" width="669" height="772" alt="Roti plush toy" style="--h:48%" aria-hidden="true">
+    <div class="tag" aria-live="off"><b>Chai Cup</b><span>Spiced, sweet and always up for a hug.</span></div>
+    <div class="picker" role="group" aria-label="Meet the friends"></div>
   </div>
 </section>
-<section class="friends" aria-labelledby="friends-title">
-  <p class="kicker">The first six friends</p>
-  <h2 id="friends-title">Meet the plush friends.</h2>
-  <p class="lead">Each one is soft, stitched with a smile, and made to be gifted and collected.</p>
-  <ul class="friends__grid">
-<li class="friend"><div class="tile" style="--tile:#C8664F"><img style="--h:63%" src="assets/images/chai-cup.webp" width="672" height="765" alt="Chai Cup plush toy" loading="lazy" decoding="async"></div><h3>Chai Cup</h3></li>
-<li class="friend"><div class="tile" style="--tile:#E9B949"><img style="--h:76%" src="assets/images/rusk-upright.webp" width="399" height="990" alt="Rusk plush toy" loading="lazy" decoding="async"></div><h3>Rusk</h3></li>
-<li class="friend"><div class="tile" style="--tile:#9FB399"><img style="--h:57%" src="assets/images/mithai-cube.webp" width="588" height="639" alt="Mithai Cube plush toy" loading="lazy" decoding="async"></div><h3>Mithai Cube</h3></li>
-<li class="friend"><div class="tile" style="--tile:#F2B8A8"><img style="--h:80%" src="assets/images/mirchi-upright.webp" width="374" height="997" alt="Mirchi plush toy" loading="lazy" decoding="async"></div><h3>Mirchi</h3></li>
-<li class="friend"><div class="tile" style="--tile:#2F7F86"><img style="--h:63%" src="assets/images/jalebi.webp" width="673" height="704" alt="Jalebi plush toy" loading="lazy" decoding="async"></div><h3>Jalebi</h3></li>
-<li class="friend"><div class="tile" style="--tile:#C3B1E1"><img style="--h:65%" src="assets/images/roti-upright.webp" width="669" height="772" alt="Roti plush toy" loading="lazy" decoding="async"></div><h3>Roti</h3></li>
-  </ul>
+
+<!-- Bottom plushies shelf with on-hover / tap direction & pose change in door arches -->
+<section class="shelf" id="plushies">
+  <div class="wrap">
+    <p class="kicker">The first six friends</p>
+    <h2 class="rv">Meet the plush friends.</h2>
+    <p class="sub rv">Each one is soft, stitched with a smile, and made to be gifted and collected. Hover or tap to see them change sides!</p>
+    <div class="row">
+      <button class="card rv" style="--i:0" type="button" aria-label="Kadak Chai: tap to change sides">
+        <div class="pic" style="--bg:#F6D5DC">
+          <img class="a" src="assets/images/kadak-chai-a.jpg" alt="Kadak Chai plushie front" loading="lazy">
+          <img class="b" src="assets/images/kadak-chai-b.jpg" alt="Kadak Chai plushie other side" loading="lazy">
+        </div>
+        <h3>Kadak Chai</h3>
+        <p>A plush chai cup with cardamom and cinnamon.</p>
+      </button>
+
+      <button class="card rv" style="--i:1" type="button" aria-label="Swirl Bun: tap to change sides">
+        <div class="pic" style="--bg:#FBE3B0">
+          <img class="a" src="assets/images/swirl-bun-a.jpg" alt="Swirl Bun plushie front" loading="lazy">
+          <img class="b" src="assets/images/swirl-bun-b.jpg" alt="Swirl Bun plushie other side" loading="lazy">
+        </div>
+        <h3>Swirl Bun</h3>
+        <p>A squishy plush bun, made for hugging.</p>
+      </button>
+
+      <button class="card rv" style="--i:2" type="button" aria-label="Nan Khatai: tap to change sides">
+        <div class="pic" style="--bg:#D9EBC6">
+          <img class="a" src="assets/images/nan-khatai-a.jpg" alt="Nan Khatai plushie front" loading="lazy">
+          <img class="b" src="assets/images/nan-khatai-b.jpg" alt="Nan Khatai plushie other side" loading="lazy">
+        </div>
+        <h3>Nan Khatai</h3>
+        <p>A soft plush cookie with a happy grin.</p>
+      </button>
+
+      <button class="card rv" style="--i:3" type="button" aria-label="Rusky: tap to change sides">
+        <div class="pic" style="--bg:#F6D5DC">
+          <img class="a" src="assets/images/rusky-a.jpg" alt="Rusky plushie front" loading="lazy">
+          <img class="b" src="assets/images/rusky-b.jpg" alt="Rusky plushie other side" loading="lazy">
+        </div>
+        <h3>Rusky</h3>
+        <p>Crunchy in name, cuddly in every stitch.</p>
+      </button>
+
+      <button class="card rv" style="--i:4" type="button" aria-label="Hari Mirch: tap to change sides">
+        <div class="pic" style="--bg:#FBE3B0">
+          <img class="a" src="assets/images/hari-mirch-a.jpg" alt="Hari Mirch plushie front" loading="lazy">
+          <img class="b" src="assets/images/hari-mirch-b.jpg" alt="Hari Mirch plushie other side" loading="lazy">
+        </div>
+        <h3>Hari Mirch</h3>
+        <p>A plush chili: spicy in name, sweet in nature.</p>
+      </button>
+
+      <button class="card rv" style="--i:5" type="button" aria-label="Pista Slice: tap to change sides">
+        <div class="pic" style="--bg:#D9EBC6">
+          <img class="a" src="assets/images/pista-slice-a.jpg" alt="Pista Slice plushie front" loading="lazy">
+          <img class="b" src="assets/images/pista-slice-b.jpg" alt="Pista Slice plushie other side" loading="lazy">
+        </div>
+        <h3>Pista Slice</h3>
+        <p>A plush treat topped with pistachio sweetness.</p>
+      </button>
+    </div>
+  </div>
 </section>
+
 <section class="join" id="join">
   <p class="hand">tiny friends, big joy</p>
   <h2>Be the first<br>to meet them.</h2>
-  <form class="wl" novalidate><input type="email" name="email" required autocomplete="email" placeholder="Your email address" aria-label="Email address"><input class="wl__hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="btn" data-tone="butter">Get early access</button></form><p class="wl__msg" role="status" aria-live="polite"></p><p class="consent">By signing up you agree to receive launch updates from Little Chai Club. <a href="privacy.html">Privacy Notice</a></p>
+  <form class="wl" novalidate>
+    <input type="email" name="email" required autocomplete="email" placeholder="Your email address" aria-label="Email address">
+    <input class="wl__hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="btn" data-tone="butter">Get early access</button>
+  </form>
+  <p class="wl__msg" role="status" aria-live="polite"></p>
+  <p class="consent">By signing up you agree to receive launch updates from Little Chai Club. <a href="privacy.html">Privacy Notice</a></p>
   <p class="join__note">Leave your email and we'll let you know when the first collection arrives.</p>
 </section>
 </main>
-<footer class="site-footer"><img src="assets/images/logo.webp" width="420" height="425" alt="Little Chai Club" loading="lazy"><p>© 2026 Little Chai Club · Plush toys inspired by South Asia</p><p><a href="privacy.html">Privacy Notice</a></p></footer>
+
+<footer class="site-footer" id="contact">
+  <img src="assets/images/logo.webp" width="420" height="425" alt="Little Chai Club" loading="lazy">
+  <p>© 2026 Little Chai Club · Plush toys inspired by South Asia</p>
+  <p><a href="about.html">About Us</a> · <a href="privacy.html">Privacy Notice</a></p>
+</footer>
+
+<button class="btt" id="btt" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 60 72" aria-hidden="true">
+    <path class="bd" d="M4 64V30A26 26 0 0 1 56 30V64a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4Z"/>
+    <path class="ar" d="M21 28l9-9 9 9M30 20v13"/>
+    <circle class="fc" cx="22" cy="48" r="2.7"/>
+    <circle class="fc" cx="38" cy="48" r="2.7"/>
+    <path class="sm" d="M26.5 53q3.5 3.6 7 0"/>
+    <circle class="ck" cx="15" cy="53" r="4" opacity=".85"/>
+    <circle class="ck" cx="45" cy="53" r="4" opacity=".85"/>
+  </svg>
+</button>
+
 <script src="js/main.js" defer></script>
-<script src="js/door.js" defer></script>
 </body>
 </html>
