@@ -255,27 +255,35 @@ html.menu-open { overflow: hidden; }
               var(--cream);
 }
 .hero h1 { margin: 14px 0 20px; font-size: clamp(3rem, 6.3vw, 5.5rem); }
-.stage { position: relative; order: -1; width: min(80vw, 440px); aspect-ratio: 1 / 1.12; margin: auto; }
-.blob {
+.stage {
+  position: relative;
+  order: -1;
+  width: min(80vw, 440px);
+  aspect-ratio: 1 / 1.12;
+  margin: auto;
+  --tint: color-mix(in srgb, var(--c) 32%, #FFF6E3);
+}
+
+.arch {
   position: absolute;
-  left: 5%;
-  right: 5%;
-  top: 2%;
-  aspect-ratio: 1;
-  border: 6px solid #fff;
-  border-radius: 50%;
-  background: var(--c);
-  box-shadow: 0 10px 0 rgba(75, 46, 34, 0.12);
-  transition: background 0.7s;
+  inset: 0 0 auto 0;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  pointer-events: none;
+}
+.arch-in {
+  fill: var(--tint);
+  transition: fill .7s;
 }
 
 /* Plushies pop up animation */
 .actor {
   position: absolute;
   left: 50%;
-  bottom: 26%;
+  bottom: 24%;
   width: auto;
-  height: var(--h);
+  height: calc(var(--h) * .88);
   translate: -50% 48px;
   scale: 0.78;
   opacity: 0;
@@ -431,11 +439,11 @@ html.menu-open { overflow: hidden; }
   color: var(--ink);
 }
 
-/* ---- Join Section: Warm lighter brown ---- */
+/* ---- Join Section: Chai Terracotta ---- */
 .join {
   padding: 100px 5vw 90px;
-  background-color: var(--warm-cocoa); /* Soft, appetizing warm cocoa brown */
-  color: var(--cream);
+  background-color: #B5533C;
+  color: #FFF3DC;
   text-align: center;
 }
 .join .hand {
@@ -444,24 +452,23 @@ html.menu-open { overflow: hidden; }
 .join h2 {
   margin-top: 6px;
   font-size: clamp(3rem, 7.5vw, 6.2rem);
-  color: var(--cream);
+  color: #FFF3DC;
 }
 .join .join__note {
-  margin: 6px 0 0;
-  color: var(--cream);
-  opacity: 0.85;
+  margin: 12px 0 0;
+  color: #FFF3DC;
+  opacity: 0.9;
 }
 .join .consent {
   margin-inline: auto;
-  color: var(--cream);
-  opacity: 0.75;
+  color: rgba(255, 243, 220, 0.85);
 }
 .join .consent a {
-  color: var(--cream);
+  color: rgba(255, 243, 220, 0.85);
   text-decoration: underline;
 }
 .join .wl__msg {
-  color: var(--butter);
+  color: #FFF3DC;
 }
 
 /* Email pill */
@@ -481,12 +488,12 @@ html.menu-open { overflow: hidden; }
 /* Button matches the butter tone on brown */
 .join .wl .btn,
 .join .wl .btn[data-tone="butter"] {
-  background-color: var(--butter);
-  color: var(--ink);
+  background-color: #F6CF63;
+  color: #3D4A28;
 }
 .join .wl .btn:hover,
 .join .wl .btn[data-tone="butter"]:hover {
-  background-color: #ffdc85;
+  background-color: #EFC24A;
 }
 
 /* ---- Footer: Forest Moss Green from reference file ---- */
