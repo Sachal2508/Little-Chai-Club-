@@ -259,7 +259,7 @@ html.menu-open { overflow: hidden; }
   position: relative;
   order: -1;
   width: min(80vw, 440px);
-  aspect-ratio: 1 / 1.12;
+  aspect-ratio: 1 / 1.3;          /* was 1 / 1.12, the taller stage gives the picker its own space */
   margin: auto;
   --tint: color-mix(in srgb, var(--c) 32%, #FFF6E3);
 }
@@ -271,19 +271,17 @@ html.menu-open { overflow: hidden; }
   height: auto;
   overflow: visible;
   pointer-events: none;
+  filter: drop-shadow(0 6px 0 rgba(75, 46, 34, .13));
 }
-.arch-in {
-  fill: var(--tint);
-  transition: fill .7s;
-}
+.niche { fill: var(--tint); transition: fill .7s; }
 
 /* Plushies pop up animation */
 .actor {
   position: absolute;
   left: 50%;
-  bottom: 24%;
+  bottom: 33%;
   width: auto;
-  height: calc(var(--h) * .88);
+  height: calc(var(--h) * .76);
   translate: -50% 48px;
   scale: 0.78;
   opacity: 0;
@@ -309,7 +307,7 @@ html.menu-open { overflow: hidden; }
 .tag {
   position: absolute;
   left: 50%;
-  bottom: 13.5%;
+  bottom: 19%;
   translate: -50% 0;
   padding: 8px 18px;
   border-radius: 18px;
