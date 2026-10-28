@@ -122,6 +122,67 @@
     });
   }
 
+  /* ---- 3a. Available cards: auto-cycle through all sides ---- */
+  document.querySelectorAll('.card.avail').forEach((card) => {
+    let slides;
+    try { slides = JSON.parse(card.dataset.slides || '[]'); } catch (e) { slides = []; }
+    if (slides.length < 2) return;
+
+    const pic = card.querySelector('.pic');
+    const img = card.querySelector('.pic img.a');
+    if (!pic || !img) return;
+
+    // Build dot indicators
+    const dotsEl = document.createElement('div');
+    dotsEl.className = 'dots';
+    slides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('on');
+      dotsEl.append(dot);
+    });
+    pic.append(dotsEl);
+
+    let current = 0;
+    let paused = false;
+    let timer = null;
+
+    function goTo(next, manual) {
+      if (next === current) return;
+      const prev = current;
+      current = next;
+
+      // Animate out then in
+      img.classList.add('slide-out');
+      setTimeout(() => {
+        img.classList.remove('slide-out');
+        img.src = slides[current];
+        img.alt = card.querySelector('h3') ? card.querySelector('h3').textContent + ' plushie side ' + (current + 1) : '';
+        img.classList.add('slide-in');
+        img.addEventListener('animationend', () => img.classList.remove('slide-in'), { once: true });
+      }, 220);
+
+      // Update dots
+      dotsEl.querySelectorAll('span').forEach((dot, i) => dot.classList.toggle('on', i === current));
+
+      if (manual) { clearInterval(timer); startTimer(); }
+    }
+
+    function startTimer() {
+      if (reduceMotion) return;
+      timer = setInterval(() => {
+        if (!paused) goTo((current + 1) % slides.length, false);
+      }, 1800);
+    }
+
+    card.addEventListener('mouseenter', () => { paused = true; });
+    card.addEventListener('mouseleave', () => { paused = false; });
+    card.addEventListener('focusin',    () => { paused = true; });
+    card.addEventListener('focusout',   () => { paused = false; });
+    card.addEventListener('click', () => goTo((current + 1) % slides.length, true));
+
+    startTimer();
+  });
+
   /* ---- 3. Bottom plushies cards: side-flip (hover on mouse devices, tap/Enter toggles on touch + keyboard) ---- */
   const canHover = window.matchMedia('(hover: hover)');
   document.querySelectorAll('.card').forEach((card) => {
