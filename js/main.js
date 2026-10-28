@@ -122,11 +122,26 @@
     });
   }
 
-  /* ---- 3. Bottom plushies cards: tap/click to switch pose / direction ---- */
+  /* ---- 3. Bottom plushies cards: side-flip (hover on mouse devices, tap/Enter toggles on touch + keyboard) ---- */
+  const canHover = window.matchMedia('(hover: hover)');
   document.querySelectorAll('.card').forEach((card) => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('alt');
+    const alt = card.querySelector('.b');
+    const dropAlt = () => {
+      if (alt) alt.remove();
+      card.classList.add('no-alt');
+    };
+    if (!alt) {
+      card.classList.add('no-alt');
+    } else {
+      alt.addEventListener('error', dropAlt);                 /* second pose file missing */
+      if (alt.complete && alt.naturalWidth === 0) dropAlt();  /* already failed */
+    }
+    card.addEventListener('click', (e) => {
+      if (card.classList.contains('no-alt')) return;
+      /* mouse users flip by hover; only toggle for touch (no hover) or keyboard (e.detail === 0) */
+      if (!canHover.matches || e.detail === 0) card.classList.toggle('alt');
     });
+    card.addEventListener('blur', () => card.classList.remove('alt'));
   });
 
   /* ---- 4. Reveal elements on scroll ---- */
